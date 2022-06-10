@@ -42,8 +42,8 @@ Route::controller(NavigationbarController::class)->group( function() {
 });
 Route::controller(FrontendController::class)->group(function() {
     Route::get('/', 'index')->name('index');
-    Route::get('/customer/account', 'CustomerAccount')->name('customer.accaount');
     Route::get('/customer/signin', 'signin')->name('signin');
+    Route::get('/customer/account', 'CustomerAccount')->name('customer.accaount');
 
 });
 Route::controller(CustomerRegisterController::class)->group(function() {
@@ -52,6 +52,7 @@ Route::controller(CustomerRegisterController::class)->group(function() {
 });
 Route::controller(CustomerLoginController::class)->group(function() {
 
+    Route::get('/customer/signout', 'customer_signout')->name('customer_signout');
     Route::post('/customer/signin/post', 'post_signin')->name('post.signin');
 });
 

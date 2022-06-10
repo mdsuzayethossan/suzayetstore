@@ -197,7 +197,7 @@
                             <ul class="header_icons_group ul_li_right">
                                 @auth('customerauth')
                                 <li>
-                                    <a href="{{ route('signin') }}">{{ Auth::guard('customerauth')->user()->name }}</a>
+                                    <a href="{{ route('customer.accaount') }}">{{ Auth::guard('customerauth')->user()->name }}</a>
                                 </li>
                                 <li class="position-relative">
                                     <div class="user_btn">
@@ -208,8 +208,8 @@
 
                                     <div class="account_button hell position-absolute bottom-0 start-0">
                                         <ul>
-                                            <li><a href="">My Account</a></li>
-                                            <li><a href="">Log Out</a></li>
+                                            <li><a href="{{ route('customer.accaount') }}">My Account</a></li>
+                                            <li><a href="{{ route('customer_signout') }}">Log Out</a></li>
                                         </ul>
                                     </div>
 

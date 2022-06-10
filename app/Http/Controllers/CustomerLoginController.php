@@ -15,4 +15,9 @@ class CustomerLoginController extends Controller
             return redirect()->route('signin');
         }
     }
+
+    public function customer_signout() {
+        Auth::guard('customerauth')->logout();
+        return redirect()->route('signin');
+      }
 }
