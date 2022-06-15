@@ -74,7 +74,7 @@
                                             <h3 class="input_title">Name*</h3>
                                             <div class="form_item">
                                                 <label for="username_input2"><i class="fas fa-user"></i></label>
-                                                <input id="username_input2" type="text" name="name" placeholder="Name">
+                                                <input id="username_input2" type="text" name="name" placeholder="Name" value="{{ old ('name') }}">
                                             </div>
                                         </div>
 
@@ -82,7 +82,7 @@
                                             <h3 class="input_title">Email*</h3>
                                             <div class="form_item">
                                                 <label for="email_input"><i class="fas fa-envelope"></i></label>
-                                                <input id="email_input" type="email" name="email" placeholder="Email">
+                                                <input id="email_input" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                                             </div>
                                         </div>
 
@@ -90,7 +90,14 @@
                                             <h3 class="input_title">Password*</h3>
                                             <div class="form_item">
                                                 <label for="password_input2"><i class="fas fa-lock"></i></label>
-                                                <input id="password_input2" type="password" name="password" placeholder="Password">
+                                                <input id="password_input2" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                                            </div>
+                                        </div>
+                                        <div class="form_item_wrap">
+                                            <h3 class="input_title">confirm password*</h3>
+                                            <div class="form_item">
+                                                <label for="password_input2"><i class="fas fa-lock"></i></label>
+                                                <input id="password_input2" type="password" name="cpassword" placeholder="Confirm Password" value="{{ old('cpassword') }}">
                                             </div>
                                         </div>
 

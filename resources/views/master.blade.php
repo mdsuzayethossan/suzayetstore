@@ -54,7 +54,7 @@
         <!-- backtotop - end -->
 
         <!-- preloader - start -->
-        <div id="preloader"></div>
+        <div id="{{ (Route::currentRouteName() == 'index'?'preloader':' ') }}"></div>
         <!-- preloader - end -->
 
 

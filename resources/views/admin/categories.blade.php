@@ -50,6 +50,7 @@
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i  class="material-icons fa fa-ellipsis-v" aria-hidden="true"></i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_categories"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 <a class="dropdown-item" href="{{ route('subcategory') }}" ><i class="fa fa-object-ungroup m-r-5"></i> Sub-Category </a>
                                             </div>
                                         </div>
@@ -91,7 +92,7 @@
         </div>
         <!-- /Add Holiday Modal -->
 
-        <!-- Add Holiday Modal -->
+        <!-- Edit category goes here Modal -->
         <div class="modal custom-modal fade" id="edit_categories" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -116,7 +117,32 @@
                 </div>
             </div>
         </div>
-        <!-- /Add Holiday Modal -->
+        <!-- /Edit Category end here Modal -->
+
+            <!-- Delete category start here Modal -->
+            <div class="modal custom-modal fade" id="delete" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="form-header">
+                                <h3>Delete </h3>
+                                <p>Are you sure want to delete?</p>
+                            </div>
+                            <div class="modal-btn delete-action">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Delete category end here Modal -->
     </div>
     <!-- /Page Wrapper -->
 
