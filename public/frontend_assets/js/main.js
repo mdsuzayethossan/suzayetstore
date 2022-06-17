@@ -869,20 +869,20 @@
     /*------------------------------------------
         = TOGGLE HEADER CATEGORY DROPDOWN FOR ONLY HOME 1
     -------------------------------------------*/
-    function toggleHeaderCategory() {
-        if ($(".header-style-no-collapse .allcategories_dropdown").length) {
-            var windowWidth = $(window).width();
-            var dropdown = $(".allcategories_collapse");
+    // function toggleHeaderCategory() {
+    //     if ($(".header-style-no-collapse .allcategories_dropdown").length) {
+    //         var windowWidth = $(window).width();
+    //         var dropdown = $(".allcategories_collapse");
 
-            if (windowWidth <= 991) {
-                dropdown.addClass("collapse");
-            } else {
-                dropdown.removeClass("collapse");
-            }
-        } else {
-            return false;
-        }
-    }
+    //         if (windowWidth <= 991) {
+    //             dropdown.addClass("collapse");
+    //         } else {
+    //             dropdown.removeClass("collapse");
+    //         }
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
 
     /*------------------------------------------

@@ -26,24 +26,68 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
+                            @if (session('cus_pass_update'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('cus_pass_update') }}
+                                  </div>
+
+                                @endif
+                            @if (session('cus_name_update'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('cus_name_update') }}
+                                  </div>
+
+                                @endif
                             <div class="tab-content bg-light p-3" id="v-pills-tabContent">
+
                                 <div class="tab-pane fade show active text-center" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                     <h5>Welcome to Account</h5>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                     <h5 class="text-center pb-3">Account Details</h5>
-                                    <form class="row g-3 p-2">
+                                    <form class="row g-3 p-2" action="{{ route('customer.update') }}" method="POST">
+                                        @csrf
                                         <div class="col-md-6">
                                             <label for="inputnamel4" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="inputnamel4" value="Mr. Jon Doe">
+                                            <input type="text" name="name" class="form-control" id="inputnamel4" value="{{ Auth('customerauth')->user()->name }}">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputEmail4" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4" value="jon@doe.com">
+                                            <input readonly type="email" class="form-control" id="inputEmail4" value="{{ Auth('customerauth')->user()->email }}">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputPassword4" class="form-label">Old Password</label>
+                                            <input type="password" name="old_password" class="form-control" id="inputPassword4" value="{{ old('old_password') }}">
+                                          @if (session('not_match_ol_pass'))
+                                          <span class="text-danger">
+                                            {{ session('not_match_ol_pass') }}
+
+                                        </span>
+
+                                          @endif
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputPassword4" class="form-label">New Password</label>
+                                            <input type="password" name="password" class="form-control" id="inputPassword4" value="{{ old('password') }}">
+                                            @error('password')
+                                            <span class="text-danger">@error(
+                                                'password'){{ $message }}
+
+                                               @enderror
+                                            </span>
+
+                                        @enderror
                                         </div>
                                         <div class="col-md-12">
-                                            <label for="inputPassword4" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="inputPassword4">
+                                            <label for="inputPassword4" class="form-label">Confirm Password</label>
+                                            <input type="password" name="Confirm-Password" class="form-control" id="inputPassword4" value="{{ old('Confirm-Password') }}">
+                                            @error('Confirm-Password')
+                                            <span class="text-danger">
+                                                {{ $message }}
+                                            </span>
+
+                                        @enderror
                                         </div>
                                         <div class="col-12 text-center">
                                             <button type="submit" class="btn btn-primary active">Update</button>

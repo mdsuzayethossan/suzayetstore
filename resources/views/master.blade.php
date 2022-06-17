@@ -96,7 +96,8 @@
                         <div class="col col-lg-3 col-md-3 col-sm-12">
                             <div class="brand_logo">
                                 <a class="brand_link" href="{{ route('index') }}">
-                                    <img src="{{ asset('frontend_assets/images/logo/logo_1x.png')}}" srcset="{{ asset('frontend_assets/images/logo/logo_2x.png 2x')}}" alt>
+
+                                    <img src="{{ asset('frontend_assets/images/logo/logo_1x.png') }}" alt="logo">
                                 </a>
                             </div>
                         </div>
@@ -156,7 +157,7 @@
                                     <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24" aria-labelledby="statsIconTitle" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000"> <title id="statsIconTitle">Stats</title> <path d="M6 7L15 7M6 12L18 12M6 17L12 17"/> </svg>
                                     Browse categories
                                 </button>
-                                <div class="allcategories_collapse" id="allcategories_collapse">
+                                <div class="allcategories_collapse {{ (Route::currentRouteName() == 'index'?' ':'collapse') }}" id="allcategories_collapse">
                                     <div class="card card-body">
                                         <ul class="allcategories_list ul_li_block">
                                             <li><a href="shop_grid.html"><i class="icon icon-Starship"></i> New Arrival Products</a></li>
@@ -232,6 +233,76 @@
         </header>
         <!-- header_section - end
         ================================================== -->
+        @auth('customerauth')
+              <!-- sidebar cart - start
+            ================================================== -->
+            <div class="sidebar-menu-wrapper">
+                <div class="cart_sidebar">
+                    <button type="button" class="close_btn"><i class="fal fa-times"></i></button>
+                    <ul class="cart_items_list ul_li_block mb_30 clearfix">
+                        <li>
+                            <div class="item_image">
+                                <img src="{{ asset('frontend_assets/images/cart/cart_img_1.jpg')}}" alt="image_not_found">
+                            </div>
+                            <div class="item_content">
+                                <h4 class="item_title">Yellow Blouse</h4>
+                                <span class="item_price">$30.00</span>
+                            </div>
+                            <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+                        </li>
+                        <li>
+                            <div class="item_image">
+                                <img src="{{ asset('frontend_assets/images/cart/cart_img_2.jpg')}}" alt="image_not_found">
+                            </div>
+                            <div class="item_content">
+                                <h4 class="item_title">Yellow Blouse</h4>
+                                <span class="item_price">$30.00</span>
+                            </div>
+                            <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+                        </li>
+                        <li>
+                            <div class="item_image">
+                                <img src="{{ asset('frontend_assets/images/cart/cart_img_3.jpg')}}" alt="image_not_found">
+                            </div>
+                            <div class="item_content">
+                                <h4 class="item_title">Yellow Blouse</h4>
+                                <span class="item_price">$30.00</span>
+                            </div>
+                            <button type="button" class="remove_btn"><i class="fal fa-trash-alt"></i></button>
+                        </li>
+                    </ul>
+
+                    <ul class="total_price ul_li_block mb_30 clearfix">
+                        <li>
+                            <span>Subtotal:</span>
+                            <span>$90</span>
+                        </li>
+                        <li>
+                            <span>Vat 5%:</span>
+                            <span>$4.5</span>
+                        </li>
+                        <li>
+                            <span>Discount 20%:</span>
+                            <span>- $18.9</span>
+                        </li>
+                        <li>
+                            <span>Total:</span>
+                            <span>$75.6</span>
+                        </li>
+                    </ul>
+
+                    <ul class="btns_group ul_li_block clearfix">
+                        <li><a class="btn btn_primary" href="cart.html">View Cart</a></li>
+                        <li><a class="btn btn_secondary" href="checkout.html">Checkout</a></li>
+                    </ul>
+                </div>
+
+                <div class="cart_overlay"></div>
+            </div>
+            <!-- sidebar cart - end
+            ================================================== -->
+
+        @endauth
       <main>
           @yield('content')
       </main>

@@ -45,7 +45,7 @@
                                             <h3 class="input_title">Email*</h3>
                                             <div class="form_item">
                                                 <label for="username_input"><i class="fas fa-envelope"></i></label>
-                                                <input id="username_input" type="text" name="email" placeholder="Email">
+                                                <input id="username_input" type="text" name="email" value="{{ old('email') }}" placeholder="Email">
                                             </div>
                                         </div>
 
@@ -53,18 +53,34 @@
                                             <h3 class="input_title">Password*</h3>
                                             <div class="form_item">
                                                 <label for="password_input"><i class="fas fa-lock"></i></label>
-                                                <input id="password_input" type="password" name="password" placeholder="Password">
+                                                <input id="password_input" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
                                             </div>
                                             <div class="checkbox_item">
                                                 <input id="remember_checkbox" type="checkbox">
                                                 <label for="remember_checkbox">Remember Me</label>
+                                                <a href="{{ route('password.forgot') }}">Forgot Password?</a>
                                             </div>
                                         </div>
 
                                         <div class="form_item_wrap">
                                             <button type="submit" class="btn btn_primary">Sign In</button>
                                         </div>
+
+
                                     </form>
+                                    <div class="form_item_wrap">
+                                    <div class="login_with_social">
+                                        <p class="mt-3">OR SIGN IN WITH YOUR SOCIAL MEDIA ACCOUNT</p>
+                                        <div class="login_with_social_item">
+                                            <ul style="list-style-type: none; display:flex; margin:0; padding:0;">
+                                                <li style="margin: 0 5px;"><a href="#"><i style="font-size: 35px; color: #4267B2" class="fab fa-facebook-square"></i></a></li>
+                                                <li style="margin: 0 5px;"><a href="#"><i style="font-size: 35px; color: #DB4437;" class="fab fa-google-plus-square"></i></a></li>
+                                                <li style="margin: 0 5px;"><a href="#"><i style="font-size: 35px; color: #171515;" class="fab fa-github-square"></i></a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
 
                                 <div class="tab-pane fade" id="signup_tab" role="tabpanel">
@@ -75,6 +91,11 @@
                                             <div class="form_item">
                                                 <label for="username_input2"><i class="fas fa-user"></i></label>
                                                 <input id="username_input2" type="text" name="name" placeholder="Name" value="{{ old ('name') }}">
+                                                @error('name')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                   </span>
+                                                   @enderror
                                             </div>
                                         </div>
 
@@ -83,6 +104,11 @@
                                             <div class="form_item">
                                                 <label for="email_input"><i class="fas fa-envelope"></i></label>
                                                 <input id="email_input" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                                                @error('email')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                   </span>
+                                                   @enderror
                                             </div>
                                         </div>
 
@@ -91,13 +117,23 @@
                                             <div class="form_item">
                                                 <label for="password_input2"><i class="fas fa-lock"></i></label>
                                                 <input id="password_input2" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                                                @error('password')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                   </span>
+                                                   @enderror
                                             </div>
                                         </div>
                                         <div class="form_item_wrap">
-                                            <h3 class="input_title">confirm password*</h3>
+                                            <h3 class="input_title">Confirm password*</h3>
                                             <div class="form_item">
                                                 <label for="password_input2"><i class="fas fa-lock"></i></label>
                                                 <input id="password_input2" type="password" name="cpassword" placeholder="Confirm Password" value="{{ old('cpassword') }}">
+                                                @error('cpassword')
+                                                <span class="text-danger">
+                                                    {{ $message }}
+                                                   </span>
+                                                   @enderror
                                             </div>
                                         </div>
 

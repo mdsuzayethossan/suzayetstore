@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerForgotpassController;
 use App\Http\Controllers\CustomerLoginController;
 use App\Http\Controllers\CustomerRegisterController;
 use App\Http\Controllers\Footercontroller;
@@ -44,6 +45,7 @@ Route::controller(FrontendController::class)->group(function() {
     Route::get('/', 'index')->name('index');
     Route::get('/customer/signin', 'signin')->name('signin');
     Route::get('/customer/account', 'CustomerAccount')->name('customer.accaount');
+    Route::post('/customer/update', 'Customerupdate')->name('customer.update');
 
 });
 Route::controller(CustomerRegisterController::class)->group(function() {
@@ -89,5 +91,13 @@ Route::controller(SubcategoryController::class)->group( function() {
 Route::controller(OrderController::class)->group(function() {
     Route::get('/vieworder', 'vieworder')->name('vieworder');
 
+
+});
+//password reset
+Route::controller(CustomerForgotpassController::class)->group(function() {
+    Route::get('/password/forgot', 'PasswordForgot')->name('password.forgot');
+    Route::post('/forget/email/send', 'CustomerForgotEmaiil')->name('customer.forgot.email');
+    Route::get('/customer/password/reset/form/{reset_token}', 'CustomerResetForm')->name('customer.reset.form');
+    Route::post('/customer/password/reset/update', 'CustomerResetUpdate')->name('customer.reset.update');
 
 });

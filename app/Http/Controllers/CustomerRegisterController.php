@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GuardRequest;
 use App\Models\customerregister;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+
 
 class CustomerRegisterController extends Controller
 {
-    function customer_register(Request $request) {
+    function customer_register(GuardRequest $request) {
         customerregister::insert([
             'name' => $request->name,
             'email' => $request->email,
