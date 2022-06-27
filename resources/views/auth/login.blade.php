@@ -43,12 +43,15 @@
                                     @endif
                                     </div>
                                 </div>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" >
+                               <div class="login-password" style="position: relative">
+                                    <input id="show-login-password"  type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <div class="show" style="position: absolute; top: 50%; transform: translateY(-50%); right: 25px; "><i class="fa fa-eye hellmy" style="cursor: pointer" aria-hidden="true"></i></div>
+                                </div>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <div class="form-check">
@@ -74,4 +77,13 @@
         </div>
     </div>
     <!-- /Main Wrapper -->
+    @section('footer_script')
+        <script>
+            $('.hellmy').click(function() {
+                alert('hello')
+
+            });
+        </script>
+    @endsection
 @endsection
+

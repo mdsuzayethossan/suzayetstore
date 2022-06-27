@@ -441,13 +441,13 @@
 
     <!-- carousel - jquery plugins collection -->
     <script src="{{ asset('frontend_assets/js/jquery-plugins-collection.js')}}"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- google map  -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&ver=2.1.6"></script>
     <script src="{{ asset('frontend_assets/js/gmaps.min.js')}}"></script>
 
     <!-- custom - main-js -->
     <script src="{{ asset('frontend_assets/js/main.js')}}"></script>
-
+    @yield('footer_script')
 </body>
 </html>

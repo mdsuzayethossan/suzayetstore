@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerEmailVerifyController;
 use App\Http\Controllers\CustomerForgotpassController;
 use App\Http\Controllers\CustomerLoginController;
 use App\Http\Controllers\CustomerRegisterController;
 use App\Http\Controllers\Footercontroller;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\GithubController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavigationbarController;
 use App\Http\Controllers\OrderController;
@@ -62,6 +64,8 @@ Route::controller(HomeController::class)->group(function(){
     // Route::get('/home', 'home')->name('home');
     Route::get('/employees', 'employees')->name('employees');
     Route::get('/admin', 'admin')->name('admin');
+    Route::get('/profile', 'profile')->name('profile');
+    Route::post('/profile/update', 'profile_update')->name('profile.update');
 
 });
 
@@ -101,3 +105,14 @@ Route::controller(CustomerForgotpassController::class)->group(function() {
     Route::post('/customer/password/reset/update', 'CustomerResetUpdate')->name('customer.reset.update');
 
 });
+
+
+Route::controller(CustomerEmailVerifyController::class)->group(function() {
+    Route::get('/customer/email/verified/{verified_token}', 'VerifiedEmail')->name('verified.email');
+    Route::get('/verified/welcome', 'verified_welcome')->name('verified.welcome');
+
+});
+
+//social login
+Route::get('/redirect/github', [GithubController::class, 'RedirectToProvider'])->name('redirect.to.provider');
+Route::get('/github/callback', [GithubController::class, 'CallbackFromGithub'])->name('callback.from.github');

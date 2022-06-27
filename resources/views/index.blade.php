@@ -1,12 +1,7 @@
 @extends('master')
 @section('content')
-
         <!-- main body - start
         ================================================== -->
-
-
-
-
             <!-- product quick view modal - start
             ================================================== -->
             <div class="modal fade" id="quickview_popup" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">

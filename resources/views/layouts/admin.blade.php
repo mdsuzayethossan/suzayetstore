@@ -27,11 +27,6 @@
 
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('dashboard_assets/css/style.css') }}">
-        <style>
-            input {
-    background-color: red;
-}
-        </style>
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -41,16 +36,6 @@
     </head>
 
     <body class="">
-
-
-
-    {{-- @php
-    $hello = 'hello';
-    $mal = 'mal';
-    @endphp
-    @if (Auth::user()->email_verified_at != null)
-    @endif --}}
-
     @auth
 		<!-- Main Wrapper -->
         <div class="main-wrapper">
@@ -61,7 +46,7 @@
 				<!-- Logo -->
                 <div class="header-left">
                     <a href="index.html" class="logo">
-						<img style="border-radius: 50%" src="{{ asset('dashboard_assets/img/logo.jpg') }}" width="45" height="45" alt="">
+						<img style="border-radius: 50%" src="{{ asset('uploads/users') }}/{{ Auth::user()->photo }}" width="45" height="45" alt="">
 					</a>
                 </div>
 				<!-- /Logo -->
@@ -326,7 +311,7 @@
                             @endauth
 						</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="profile.html">My Profile</a>
+							<a class="dropdown-item" href="{{ route('profile') }}">My Profile</a>
 							<a class="dropdown-item" href="settings.html">Settings</a>
 							<a class="dropdown-item" href="{{ route('logout') }}"   onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" >Logout</a>
@@ -418,7 +403,8 @@
 
 		<!-- Slimscroll JS -->
 		<script src="{{ asset('dashboard_assets/js/jquery.slimscroll.min.js')}}"></script>
-
+        <!--sweetalert-->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 		<!-- Chart JS -->
 		<script src="{{ asset('dashboard_assets/plugins/morris/morris.min.js')}}"></script>
 		<script src="{{ asset('dashboard_assets/plugins/raphael/raphael.min.js')}}"></script>
@@ -427,33 +413,33 @@
 		<!-- Custom JS -->
 		<script src="{{ asset('dashboard_assets/js/app.js')}}"></script>
         <script>
-       $(document).on('click', '#toggle_btn', function() {
-        if ($('body').hasClass('mini-sidebar')) {
-            $('body').removeClass('mini-sidebar');
-            $('.subdrop + ul').slideDown();
-        } else {
-            $('body').addClass('mini-sidebar');
-            $('.subdrop + ul').slideUp();
-        }
-        return false;
-    });
-    $(document).on('mouseover', function(e) {
-        e.stopPropagation();
-        if ($('body').hasClass('mini-sidebar') && $('#toggle_btn').is(':visible')) {
-            var targ = $(e.target).closest('.sidebar').length;
-            if (targ) {
-                $('body').addClass('expand-menu');
-                $('.subdrop + ul').slideDown();
-            } else {
-                $('body').removeClass('expand-menu');
-                $('.subdrop + ul').slideUp();
-            }
-            return false;
-        }
-    });
+            $(document).on('click', '#toggle_btn', function() {
+                if ($('body').hasClass('mini-sidebar')) {
+                    $('body').removeClass('mini-sidebar');
+                    $('.subdrop + ul').slideDown();
+                } else {
+                    $('body').addClass('mini-sidebar');
+                    $('.subdrop + ul').slideUp();
+                }
+                return false;
+            });
+            $(document).on('mouseover', function(e) {
+                e.stopPropagation();
+                if ($('body').hasClass('mini-sidebar') && $('#toggle_btn').is(':visible')) {
+                    var targ = $(e.target).closest('.sidebar').length;
+                    if (targ) {
+                        $('body').addClass('expand-menu');
+                        $('.subdrop + ul').slideDown();
+                    } else {
+                        $('body').removeClass('expand-menu');
+                        $('.subdrop + ul').slideUp();
+                    }
+                    return false;
+                }
+            });
         </script>
+        @endauth
         @yield('footer_script')
     </body>
 </html>
-@endauth
 
