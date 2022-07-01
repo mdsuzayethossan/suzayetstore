@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
+            $table->string('category_name')->nullable();
+            $table->string('first_title')->nullable();
+            $table->string('second_title')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('product_price')->nullable();
+            $table->integer('discount')->nullable();
+            $table->integer('discout_price')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

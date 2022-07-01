@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('footers', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
+            $table->string('verify_token');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('footers');
+        Schema::dropIfExists('subscribes');
     }
 };

@@ -24,6 +24,8 @@
 
 		<!-- Chart CSS -->
 		<link rel="stylesheet" href="{{ asset('dashboard_assets/plugins/morris/morris.css') }}">
+        <!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/css/select2.min.css">
 
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{ asset('dashboard_assets/css/style.css') }}">
@@ -349,6 +351,17 @@
                             <li>
 								<a href="{{ route('admin') }}"><i class="la la-dashboard"></i> <span>Dashboard</span></a>
 							</li>
+                            <li class="submenu">
+                                <a href="#" class="noti-dot"><i class="la la-key"></i> <span> Role Management</span> <span class="menu-arrow"></span></a>
+                                <ul style="display: none;">
+                                    <li><a href="{{ route('role.permission.name') }}">Role Permission Name</a></li>
+                                    <li><a href="{{ route('role.permission') }}">Add Role & Permission</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+
+							</li>
                             <li>
 								<a href="{{ route('navigationbar') }}"><i class="la la-dashboard"></i> <span>Navigation Bar</span></a>
 							</li>
@@ -374,7 +387,7 @@
 								<a href="{{ route('footer') }}"><i class="fa fa-newspaper-o"></i> <span>Footer</span></a>
 							</li>
                             <li>
-								<a href="{{ route('vieworder') }}"><i class="fa fa-newspaper-o"></i> <span>Orders</span></a>
+								<a href="{{ route('vieworder') }}"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> <span>Orders</span></a>
 							</li>
 
 						</ul>
@@ -409,7 +422,8 @@
 		<script src="{{ asset('dashboard_assets/plugins/morris/morris.min.js')}}"></script>
 		<script src="{{ asset('dashboard_assets/plugins/raphael/raphael.min.js')}}"></script>
 		<script src="{{ asset('dashboard_assets/js/chart.js')}}"></script>
-
+        	<!-- Select2 JS -->
+		<script src="assets/js/select2.min.js"></script>
 		<!-- Custom JS -->
 		<script src="{{ asset('dashboard_assets/js/app.js')}}"></script>
         <script>

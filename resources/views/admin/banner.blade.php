@@ -72,12 +72,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{ route('banner.post') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="col-form-label">Type <span class="text-danger">*</span></label>
-                                <input class="form-control" type="text" name="type" placeholder="clothing">
+                                <input class="form-control" type="text" name="category_name" placeholder="clothing">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -101,22 +102,27 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="col-form-label">Price</label>
-                                <input class="form-control" type="number" name="price">
+                                <input class="form-control" type="number" name="product_price">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="col-form-label">Discount Price</label>
-                                <input class="form-control" type="password" name="discount_price">
+                                <label class="col-form-label">Discount</label>
+                                <input class="form-control" type="number" name="discount">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Banner Image</label>
+                                <input class="form-control" type="file" name="image">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label class="col-form-label">Buy Button <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="buy_button">
+                                <input type="text" class="form-control" name="btn">
                             </div>
                         </div>
-
                     </div>
 
                     <div class="submit-section">

@@ -13,6 +13,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NavigationbarController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleManagementController;
 use App\Http\Controllers\SubcategoryController;
 use App\Models\product;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,14 @@ Route::controller(HomeController::class)->group(function(){
     Route::post('/profile/update', 'profile_update')->name('profile.update');
 
 });
+//Role Management
+Route::controller(RoleManagementController::class)->group(function() {
+    Route::get('/role/permission/name', 'role_permission_name')->name('role.permission.name');
+    Route::post('/role/permission/name/add', 'role_permission_name_add')->name('role.permission.name.add');
+    Route::get('/role/permission/', 'role_permission')->name('role.permission');
+    Route::post('/role/add/permission/assign', 'role_permission_assign')->name('role.permission.assign');
+
+});
 
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/category', 'category')->name('category');
@@ -75,6 +84,7 @@ Route::controller(CategoryController::class)->group(function () {
 });
 Route::controller(BannerController::class)->group(function(){
     Route::get('/banner', 'banner')->name('banner');
+    Route::post('/banner/post', 'banner_post')->name('banner.post');
 
 
 });
